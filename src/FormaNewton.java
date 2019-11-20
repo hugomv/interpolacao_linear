@@ -16,6 +16,7 @@ public class FormaNewton {
     double y1, y2, y3, y4, y5;
 
     Map<String,Double> tabela = new HashMap<>();
+    double[][] y;
     double x;
 
     /**
@@ -87,7 +88,7 @@ public class FormaNewton {
     }
 
     public Double encontrarP(){
-        double y[][]=new double[10][10];
+        y=new double[10][10];
 
         for(int i = 0;i<valoresY.size();i++){
             y[i][0] = valoresY.get(i);
@@ -116,7 +117,7 @@ public class FormaNewton {
         return pro;
     }
 
-    public void calcularTabela(double y[][], int n)
+    public double[][] calcularTabela(double y[][], int n)
     {
         for (int i = 1; i < n; i++) {
             for (int j = 0; j < n - i; j++) {
@@ -124,6 +125,7 @@ public class FormaNewton {
                         [i - 1]) / (valoresX.get(j) - valoresX.get(i + j));
             }
         }
+        return y;
     }
 
     public double aplicarFormula(double y[][], int n)
@@ -136,18 +138,20 @@ public class FormaNewton {
         return sum;
     }
 
-    static void printDiffTable(double y[][],int n)
+    public String printDiffTable(double y[][],int n)
     {
+        StringBuilder sb = new StringBuilder();
         DecimalFormat df = new DecimalFormat("#.####");
         df.setRoundingMode(RoundingMode.HALF_UP);
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n - i; j++) {
                 String str1 = df.format(y[i][j]);
-                System.out.print(str1+"\t ");
+                sb.append(str1+"\t ");
             }
-            System.out.println("");
+            sb.append("\n");
         }
+        return sb.toString();
     }
 }
 

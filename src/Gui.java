@@ -35,7 +35,7 @@ public class Gui extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JTextArea();
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -146,7 +146,8 @@ public class Gui extends javax.swing.JPanel {
         FormaNewton interpolacao = new FormaNewton();
         interpolacao.inserirPontos(valoresX, valoresY);
         interpolacao.inserirX(valorX);
-        jLabel5.setText(String.format("f(%f) = %f ", valorX,interpolacao.encontrarP()));
+        jLabel5.setText(String.format("f(%f) = %f \n", valorX,interpolacao.encontrarP()));
+        jLabel5.append( interpolacao.printDiffTable(interpolacao.y,interpolacao.valoresX.size()));
     }
 
 
@@ -156,7 +157,7 @@ public class Gui extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextArea jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField2;

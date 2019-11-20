@@ -29,7 +29,7 @@ public class Main {
 //        System.out.println(interpolacao.encontrarP());
 
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        JFrame frame = new JFrame("Interpolação Lagrange");
+        JFrame frame = new JFrame("Interpolação Newton");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setContentPane(new Gui());
         frame.pack();
