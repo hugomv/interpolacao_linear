@@ -143,7 +143,7 @@ public class Gui extends javax.swing.JPanel {
         }
 
         Double valorX = Double.parseDouble(jTextField2.getText());
-        Interpolacao interpolacao = new Interpolacao();
+        FormaNewton interpolacao = new FormaNewton();
         interpolacao.inserirPontos(valoresX, valoresY);
         interpolacao.inserirX(valorX);
         jLabel5.setText(String.format("f(%f) = %f ", valorX,interpolacao.encontrarP()));
